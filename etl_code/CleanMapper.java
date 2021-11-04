@@ -101,11 +101,15 @@ public class CleanMapper
                         // if we see id field
                         i += 6; // looking at the first number of the id
                         int j = i;
-                        while (!(line.substring(i, i+1).equals("\'"))) {
+                        while (!(line.substring(i, i+1).equals(","))) {
                             // find index of the end of the id
                             i++;
                         }
-                        artistID = line.substring(j, i);
+                        try {
+                            artistID = line.substring(j, i-1);
+                        }
+                        catch (StringIndexOutOfBoundsException e){        
+                        }
                         artistIdFound = true;
                         // System.out.println("artistID: " + artistID);
                     }
@@ -113,11 +117,15 @@ public class CleanMapper
                         // if we see the name field
                         i += 8; // looking at the first letter of the name
                         int j = i;
-                        while (!(line.substring(i, i+1).equals("\'"))) {
+                        while (!(line.substring(i, i+1).equals(","))) {
                             // find index of the end of the id
                             i++;
                         }
-                        artistName = line.substring(j, i);
+                        try {
+                            artistName = line.substring(j, i-1);
+                        }
+                        catch (StringIndexOutOfBoundsException e) {
+                        }
                         artistNameFound = true;
                         // System.out.println("Artist name: " + artistName);
                     }
@@ -126,14 +134,15 @@ public class CleanMapper
             }
             i++;
         }
-	if (trackID.length() == 22 && albumID.length() == 22 && artistID.length() == 22) {  
-        /*
-        Spotify IDs are all 22 in length. If for some reason they are not length() == 22, then something messed up and we dont write the column
-        If the trackID is not valid, then we cannot perform a join with the features dataset because the key is the trackID
-        */
-		String newLine = String.join(",", artistName, artistID, albumName, albumID, trackName, trackID);
-      		context.write(new Text(newLine), NullWritable.get());
+        if (trackID.length() == 22 && albumID.length() == 22 && artistID.length() == 22) {  
+            /*
+            Spotify IDs are all 22 in length. If for some reason they are not length() == 22, then something messed up and we dont write the column
+            If the trackID is not valid, then we cannot perform a join with the features dataset because the key is the trackID
+            */
+            // this is the new schema:
+            // artistName, artistID, albumName, albumID, trackName, trackID
+            String newLine = String.join(",", artistName, artistID, albumName, albumID, trackName, trackID);
+            context.write(new Text(newLine), NullWritable.get());
+        }  
 	}
-    }
-
 }
