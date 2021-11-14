@@ -1,3 +1,4 @@
+use dtl310;
 SELECT 
     avg(full_traffic_jam.valence) AS valence, "traffic jam" AS table_name 
     FROM full_traffic_jam
