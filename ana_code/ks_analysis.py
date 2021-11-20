@@ -20,4 +20,14 @@ sparkSession = (SparkSession
 
 sparkSession.sql('use dtl310')
 
-ks_2samp(sparkSession.sql('select * from full_party'), "valence", sparkSession.sql('select * from full_barbecue'), "valence")
+tables = ["fulL_party", "full_barbecue", "full_relaxing_evening", "full_sunday", "full_pissed", "full_date_night", "full_traffic_jam", "full_studying"]
+cols = ["danceability", "energy", "loudness", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo"]
+
+
+
+for table in tables:
+    for table_rhs in tables:
+        for col in cols:
+            if table is not table_rhs:
+                ks_stat, p = ks_2samp(sparkSession.sql(f'select * from {table}'), col, sparkSession.sql(f'select * from {table_rhs}'), col)
+                print("P value for KS test between " , table , " and " , table_rhs , " over variable " , col , " : " , p)
