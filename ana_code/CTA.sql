@@ -94,3 +94,108 @@ SELECT
     avg(full_barbecue.liveness) AS liveness,
     "barbecue" AS table_name
     FROM full_barbecue;
+
+use dtl310;
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "party" AS table_name
+FROM
+    full_party
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "pissed" AS table_name
+FROM
+    full_pissed
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "sunday" AS table_name
+FROM
+    full_sunday
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "relaxing_evening" AS table_name
+FROM
+    full_relaxing_evening
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "traffic_jam" AS table_name
+FROM
+    full_traffic_jam
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "studying" AS table_name
+FROM
+    full_studying
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "date_night" AS table_name
+FROM
+    full_date_night
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "barbecue" AS table_name
+FROM
+    full_barbecue;
