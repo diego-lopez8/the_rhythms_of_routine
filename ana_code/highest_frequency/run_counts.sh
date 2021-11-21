@@ -1,0 +1,8 @@
+impala-shell -i hc01.nyu.cluster -f barbecue_counts.sql &> "barbecue_counts.txt"
+impala-shell -i hc01.nyu.cluster -f date_night_counts.sql &> "date_night_counts.txt"
+impala-shell -i hc01.nyu.cluster -f party_counts.sql &> "party_counts.txt"
+impala-shell -i hc01.nyu.cluster -f pissed_counts.sql &> "pissed_counts.txt"
+impala-shell -i hc01.nyu.cluster -f relaxing_evening_counts.sql &> "relaxing_evening_counts.txt"
+impala-shell -i hc01.nyu.cluster -f studying_counts.sql &> "studying_counts.txt"
+impala-shell -i hc01.nyu.cluster -f sunday_counts.sql &> "sunday_counts.txt"
+impala-shell -i hc01.nyu.cluster -f traffic_jam_counts.sql &> "traffic_jam_counts.txt"
