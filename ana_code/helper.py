@@ -9,6 +9,14 @@ class KSFrame:
         self.df1 = df1
         self.df2 = df2
         self.vars = []
+
     def add_stat(self, col, p, ks_stat):
         var = singleVar(col, p, ks_stat)
         self.vars.append(var)
+
+    def __repr__(self):
+        output = f"KS Distribution P values comparing {self.df1} and {self.df2}:\n"
+        for var in self.vars:
+            output += f"{var.col}: {var.p}\n"
+        return output
+        
