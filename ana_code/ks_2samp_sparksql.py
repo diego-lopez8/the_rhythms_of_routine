@@ -1,3 +1,9 @@
+"""
+Credits to Ben Epstein:
+Can be found here:
+https://github.com/Davi-Schumacher/KS-2Samp-PySparkSQL/blob/master/ks_2samp_sparksql.py
+"""
+
 import numpy as np
 import pyspark.sql.functions as funcs
 from pyspark.sql.window import Window

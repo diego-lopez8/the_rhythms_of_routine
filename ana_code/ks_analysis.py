@@ -9,6 +9,7 @@ from ks_2samp_sparksql import *
 from pyspark import SparkContext, SparkConf
 from pyspark.conf import SparkConf
 from pyspark.sql import SparkSession, HiveContext
+from helper import *
 
 sparkSession = (SparkSession
                 .builder
@@ -22,12 +23,16 @@ sparkSession.sql('use dtl310')
 
 tables = ["fulL_party", "full_barbecue", "full_relaxing_evening", "full_sunday", "full_pissed", "full_date_night", "full_traffic_jam", "full_studying"]
 cols = ["danceability", "energy", "loudness", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo"]
-
+frames = []
 
 
 for table in tables:
     for table_rhs in tables:
-        for col in cols:
-            if table is not table_rhs:
+        if table is not table_rhs:
+            frame = KSFrame(table, table_rhs)
+            frames.append(frame)
+            for col in cols:
                 ks_stat, p = ks_2samp(sparkSession.sql(f'select * from {table}'), col, sparkSession.sql(f'select * from {table_rhs}'), col)
-                print("P value for KS test between " , table , " and " , table_rhs , " over variable " , col , " : " , p)
+                frame.add_stat(col, p, ks_stat)
+for frame in frames:
+    print(frame, file=open("KSOutput.txt", "a"))
