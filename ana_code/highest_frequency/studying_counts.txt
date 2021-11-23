@@ -1,0 +1,99 @@
+Starting Impala Shell without Kerberos authentication
+Opened TCP connection to hc01.nyu.cluster:21000
+Connected to hc01.nyu.cluster:21000
+Server version: impalad version 3.2.0-cdh6.3.4 RELEASE (build 5fe4723ad8fe1c3aaecbeb32c7533048be2420cf)
+Query: use dtl310
+Query: SELECT trackname,
+  artistname,
+  COUNT(trackname) AS `value_occurrence`
+
+FROM
+  full_studying
+
+GROUP BY
+  trackname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:45 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=274678f159647c21:dd00b62300000000
++------------------------------------------------+----------------+------------------+
+| trackname                                      | artistname     | value_occurrence |
++------------------------------------------------+----------------+------------------+
+| this girl                                      | Elijah Who     | 13               |
+| The Night We Met                               | Lord Huron     | 13               |
+| "sincerely                                     | Nohidea        | 12               |
+| From the Dining Table                          | Harry Styles   | 11               |
+| Falling for U                                  | Peachy!        | 11               |
+| august                                         | Taylor Swift   | 11               |
+| 5:32pm                                         | The Deli       | 11               |
+| I Fell in Love with You One Night in September | Rook1e         | 11               |
+| Je te laisserai des mots                       | Patrick Watson | 10               |
+| [oops]                                         | potsu          | 10               |
++------------------------------------------------+----------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT artistname,
+  COUNT(artistname) AS `value_occurrence`
+
+FROM
+  full_studying
+
+GROUP BY
+  artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:45 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=1a4b20ab33d310d0:80b5e4db00000000
++-------------------------+------------------+
+| artistname              | value_occurrence |
++-------------------------+------------------+
+| Various Artists         | 586              |
+| BTS                     | 284              |
+| Taylor Swift            | 139              |
+| Thomas Newman           | 93               |
+| Lana Del Rey            | 81               |
+| Wolfgang Amadeus Mozart | 76               |
+| Harry Styles            | 68               |
+| Khalid                  | 66               |
+| James Newton Howard     | 63               |
+| John Williams           | 61               |
++-------------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT albumname,
+  artistname,
+  COUNT(albumname) AS `value_occurrence`
+
+FROM
+  full_studying
+
+GROUP BY
+  albumname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:45 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=f44b58e57ab4525c:7e387f0600000000
++---------------------------------------------------------------+-------------------+------------------+
+| albumname                                                     | artistname        | value_occurrence |
++---------------------------------------------------------------+-------------------+------------------+
+| The Theory of Everything (Original Motion Picture Soundtrack) | Jóhann Jóhannsson | 49               |
+| Gentle Boy                                                    | Elijah Who        | 48               |
+| folklore                                                      | Taylor Swift      | 43               |
+| Love Yourself 轉 'Tear'                                       | BTS               | 41               |
+| SOUR                                                          | Olivia Rodrigo    | 40               |
+| 1 Am. Study Session                                           | Various Artists   | 38               |
+| Love Yourself 結 'Answer'                                     | BTS               | 37               |
+| evermore                                                      | Taylor Swift      | 36               |
+| Little Women (Original Motion Picture Soundtrack)             | Alexandre Desplat | 36               |
+| MAP OF THE SOUL : 7                                           | BTS               | 33               |
++---------------------------------------------------------------+-------------------+------------------+
+Fetched 10 row(s) in 0.21s

@@ -1,0 +1,99 @@
+Starting Impala Shell without Kerberos authentication
+Opened TCP connection to hc01.nyu.cluster:21000
+Connected to hc01.nyu.cluster:21000
+Server version: impalad version 3.2.0-cdh6.3.4 RELEASE (build 5fe4723ad8fe1c3aaecbeb32c7533048be2420cf)
+Query: use dtl310
+Query: SELECT trackname,
+  artistname,
+  COUNT(trackname) AS `value_occurrence`
+
+FROM
+  full_barbecue
+
+GROUP BY
+  trackname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:40 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=39429e9bd170b6b0:d4fb800300000000
++-----------------------------+------------------------------+------------------+
+| trackname                   | artistname                   | value_occurrence |
++-----------------------------+------------------------------+------------------+
+| Sweet Home Alabama          | Lynyrd Skynyrd               | 16               |
+| Brown Eyed Girl             | Van Morrison                 | 13               |
+| Blinding Lights             | The Weeknd                   | 12               |
+| Smells Like Teen Spirit     | Nirvana                      | 11               |
+| Mr. Brightside              | The Killers                  | 11               |
+| Have You Ever Seen The Rain | Creedence Clearwater Revival | 10               |
+| The Less I Know The Better  | Tame Impala                  | 10               |
+| Tongue Tied                 | Grouplove                    | 10               |
+| All Summer Long             | Kid Rock                     | 10               |
+| Feel Good Inc.              | Gorillaz                     | 9                |
++-----------------------------+------------------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT artistname,
+  COUNT(artistname) AS `value_occurrence`
+
+FROM
+  full_barbecue
+
+GROUP BY
+  artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:40 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=d34f4eec7ed74a2a:d8f368ac00000000
++-----------------+------------------+
+| artistname      | value_occurrence |
++-----------------+------------------+
+| Various Artists | 509              |
+| Kanye West      | 163              |
+| Drake           | 159              |
+| AC/DC           | 122              |
+| Lynyrd Skynyrd  | 112              |
+| Pop Smoke       | 102              |
+| Motörhead       | 93               |
+| Black Sabbath   | 90               |
+| DaBaby          | 87               |
+| Deep Purple     | 86               |
++-----------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT albumname,
+  artistname,
+  COUNT(albumname) AS `value_occurrence`
+
+FROM
+  full_barbecue
+
+GROUP BY
+  albumname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:40 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=ef4e38e4b014e999:fa8af2f900000000
++--------------------------------------+--------------+------------------+
+| albumname                            | artistname   | value_occurrence |
++--------------------------------------+--------------+------------------+
+| Donda                                | Kanye West   | 45               |
+| ASTROWORLD                           | Travis Scott | 34               |
+| Shoot For The Stars Aim For The Moon | Pop Smoke    | 33               |
+| CALL ME IF YOU GET LOST              | Tyle         | 29               |
+| BLAME IT ON BABY                     | DaBaby       | 23               |
+| 2014 Forest Hills Drive              | J. Cole      | 23               |
+| Dopamine                             | BØRNS        | 23               |
+| Goodbye & Good Riddance              | Juice WRLD   | 22               |
+| Back In Black                        | AC/DC        | 21               |
+| Demon Days                           | Gorillaz     | 21               |
++--------------------------------------+--------------+------------------+
+Fetched 10 row(s) in 0.21s

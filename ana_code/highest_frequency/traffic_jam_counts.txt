@@ -1,0 +1,99 @@
+Starting Impala Shell without Kerberos authentication
+Opened TCP connection to hc01.nyu.cluster:21000
+Connected to hc01.nyu.cluster:21000
+Server version: impalad version 3.2.0-cdh6.3.4 RELEASE (build 5fe4723ad8fe1c3aaecbeb32c7533048be2420cf)
+Query: use dtl310
+Query: SELECT trackname,
+  artistname,
+  COUNT(trackname) AS `value_occurrence`
+
+FROM
+  full_traffic_jam
+
+GROUP BY
+  trackname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:46 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=744dec556fd7496f:701af91000000000
++----------------------------------------+----------------+------------------+
+| trackname                              | artistname     | value_occurrence |
++----------------------------------------+----------------+------------------+
+| STAY (with Justin Bieber)              | The Kid LAROI  | 27               |
+| Peaches (feat. Daniel Caesar & Giveon) | Justin Bieber  | 20               |
+| Kiss Me More (feat. SZA)               | Doja Cat       | 19               |
+| good 4 u                               | Olivia Rodrigo | 18               |
+| INDUSTRY BABY (feat. Jack Harlow)      | Lil Nas X      | 17               |
+| Don't Start Now                        | Dua Lipa       | 15               |
+| Blinding Lights                        | The Weeknd     | 15               |
+| Levitating (feat. DaBaby)              | Dua Lipa       | 15               |
+| Leave The Door Open                    | Bruno Mars     | 15               |
+| positions                              | Ariana Grande  | 14               |
++----------------------------------------+----------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT artistname,
+  COUNT(artistname) AS `value_occurrence`
+
+FROM
+  full_traffic_jam
+
+GROUP BY
+  artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:47 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=3a46c9c304bc438a:a2e29cbe00000000
++---------------------+------------------+
+| artistname          | value_occurrence |
++---------------------+------------------+
+| Various Artists     | 490              |
+| Taylor Swift        | 209              |
+| One Direction       | 196              |
+| Drake               | 181              |
+| Kanye West          | 174              |
+| Ariana Grande       | 159              |
+| Justin Bieber       | 142              |
+| The Weeknd          | 142              |
+| 5 Seconds of Summer | 140              |
+| Enter Shikari       | 133              |
++---------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT albumname,
+  artistname,
+  COUNT(albumname) AS `value_occurrence`
+
+FROM
+  full_traffic_jam
+
+GROUP BY
+  albumname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:47 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=3f4bf1b374307727:2ea3173100000000
++----------------------------+---------------------+------------------+
+| albumname                  | artistname          | value_occurrence |
++----------------------------+---------------------+------------------+
+| SOUR                       | Olivia Rodrigo      | 73               |
+| Fine Line                  | Harry Styles        | 66               |
+| Planet Her                 | Doja Cat            | 47               |
+| Midnight Memories (Deluxe) | One Direction       | 47               |
+| Justice                    | Justin Bieber       | 46               |
+| Starboy                    | The Weeknd          | 43               |
+| 5 Seconds Of Summer        | 5 Seconds of Summer | 42               |
+| FOUR (Deluxe)              | One Direction       | 42               |
+| Positions                  | Ariana Grande       | 40               |
+| Heartbreak Weather         | Niall Horan         | 40               |
++----------------------------+---------------------+------------------+
+Fetched 10 row(s) in 0.21s

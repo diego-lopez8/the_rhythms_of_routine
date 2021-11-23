@@ -1,0 +1,99 @@
+Starting Impala Shell without Kerberos authentication
+Opened TCP connection to hc01.nyu.cluster:21000
+Connected to hc01.nyu.cluster:21000
+Server version: impalad version 3.2.0-cdh6.3.4 RELEASE (build 5fe4723ad8fe1c3aaecbeb32c7533048be2420cf)
+Query: use dtl310
+Query: SELECT trackname,
+  artistname,
+  COUNT(trackname) AS `value_occurrence`
+
+FROM
+  full_sunday
+
+GROUP BY
+  trackname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:45 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=0f475ab67156696a:66a11c3600000000
++--------------------------------------+--------------------+------------------+
+| trackname                            | artistname         | value_occurrence |
++--------------------------------------+--------------------+------------------+
+| Don't Know Why                       | Norah Jones        | 17               |
+| Easy                                 | Commodores         | 16               |
+| Sunday Morning                       | Maroon 5           | 16               |
+| Better Together                      | Jack Johnson       | 15               |
+| Lovely Day                           | Bill Withers       | 14               |
+| Here Comes The Sun - Remastered 2009 | The Beatles        | 14               |
+| Banana Pancakes                      | Jack Johnson       | 13               |
+| Put Your Records On                  | Corinne Bailey Rae | 12               |
+| Ain't No Sunshine                    | Bill Withers       | 12               |
+| Budapest                             | George Ezra        | 11               |
++--------------------------------------+--------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT artistname,
+  COUNT(artistname) AS `value_occurrence`
+
+FROM
+  full_sunday
+
+GROUP BY
+  artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:46 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=dd4e61a52dcba199:e66645ee00000000
++-----------------+------------------+
+| artistname      | value_occurrence |
++-----------------+------------------+
+| Various Artists | 547              |
+| John Mayer      | 93               |
+| The Beatles     | 88               |
+| Jack Johnson    | 64               |
+| Ed Sheeran      | 63               |
+| Stevie Wonder   | 62               |
+| Fleetwood Mac   | 58               |
+| Air Supply      | 58               |
+| Leon Bridges    | 57               |
+| Marvin Gaye     | 51               |
++-----------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT albumname,
+  artistname,
+  COUNT(albumname) AS `value_occurrence`
+
+FROM
+  full_sunday
+
+GROUP BY
+  albumname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:46 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=7a45c568b2e39677:25a0aca200000000
++-----------------------------------+----------------+------------------+
+| albumname                         | artistname     | value_occurrence |
++-----------------------------------+----------------+------------------+
+| In Between Dreams                 | Jack Johnson   | 41               |
+| Come Away With Me                 | Norah Jones    | 28               |
+| The Hymns Collection (2 Disc Set) | Paul Cardall   | 27               |
+| The Best of Bread                 | Bread          | 26               |
+| Abbey Road (Remastered)           | The Beatles    | 25               |
+| Chinese Jazz Piano                | DJ BOBBYB      | 24               |
+| At Last!                          | Etta James     | 23               |
+| Wanted on Voyage                  | George Ezra    | 22               |
+| Born For You - His Best And More  | David Pomeranz | 22               |
+| Songs About Jane                  | Maroon 5       | 22               |
++-----------------------------------+----------------+------------------+
+Fetched 10 row(s) in 0.21s

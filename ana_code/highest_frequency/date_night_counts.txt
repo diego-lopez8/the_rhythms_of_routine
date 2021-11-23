@@ -1,0 +1,99 @@
+Starting Impala Shell without Kerberos authentication
+Opened TCP connection to hc01.nyu.cluster:21000
+Connected to hc01.nyu.cluster:21000
+Server version: impalad version 3.2.0-cdh6.3.4 RELEASE (build 5fe4723ad8fe1c3aaecbeb32c7533048be2420cf)
+Query: use dtl310
+Query: SELECT trackname,
+  artistname,
+  COUNT(trackname) AS `value_occurrence`
+
+FROM
+  full_date_night
+
+GROUP BY
+  trackname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:41 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=c14fb83c75dfb583:7ff3daf000000000
++---------------------------+-----------------+------------------+
+| trackname                 | artistname      | value_occurrence |
++---------------------------+-----------------+------------------+
+| Tennessee Whiskey         | Chris Stapleton | 10               |
+| Perfect                   | Ed Sheeran      | 9                |
+| Die A Happy Man           | Thomas Rhett    | 8                |
+| Beautiful Crazy           | Luke Combs      | 8                |
+| Thinking out Loud         | Ed Sheeran      | 8                |
+| Adore You                 | Harry Styles    | 7                |
+| Strawberries & Cigarettes | Troye Sivan     | 7                |
+| Leave The Door Open       | Bruno Mars      | 7                |
+| Dangerous Woman           | Ariana Grande   | 7                |
+| I'm Yours                 | Jason Mraz      | 7                |
++---------------------------+-----------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT artistname,
+  COUNT(artistname) AS `value_occurrence`
+
+FROM
+  full_date_night
+
+GROUP BY
+  artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:41 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=5149b2cac4cf86a7:fc7241cc00000000
++-------------------------------+------------------+
+| artistname                    | value_occurrence |
++-------------------------------+------------------+
+| Various Artists               | 227              |
+| Ed Sheeran                    | 81               |
+| Frank Sinatra                 | 51               |
+| Date Night Chill Out Playlist | 50               |
+| Justin Bieber                 | 48               |
+| Taylor Swift                  | 45               |
+| Shawn Mendes                  | 44               |
+| Blake Shelton                 | 40               |
+| Chris Brown                   | 39               |
+| The Weeknd                    | 38               |
++-------------------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT albumname,
+  artistname,
+  COUNT(albumname) AS `value_occurrence`
+
+FROM
+  full_date_night
+
+GROUP BY
+  albumname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:41 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=c34cd9891f36aabb:d3b4bf3100000000
++--------------------------------------+------------------+------------------+
+| albumname                            | artistname       | value_occurrence |
++--------------------------------------+------------------+------------------+
+| ÷ (Deluxe)                           | Ed Sheeran       | 23               |
+| Fine Line                            | Harry Styles     | 19               |
+| Justice                              | Justin Bieber    | 16               |
+| Dangerous Woman                      | Ariana Grande    | 15               |
+| Traveller                            | Chris Stapleton  | 15               |
+| It's Time                            | Michael Bublé    | 14               |
+| Strummin' On Garth                   | Brooks Jefferson | 14               |
+| Continuum                            | John Mayer       | 13               |
+| American Teen                        | Khalid           | 13               |
+| Shoot For The Stars Aim For The Moon | Pop Smoke        | 13               |
++--------------------------------------+------------------+------------------+
+Fetched 10 row(s) in 0.21s

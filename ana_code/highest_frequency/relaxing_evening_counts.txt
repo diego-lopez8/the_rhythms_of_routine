@@ -1,0 +1,99 @@
+Starting Impala Shell without Kerberos authentication
+Opened TCP connection to hc01.nyu.cluster:21000
+Connected to hc01.nyu.cluster:21000
+Server version: impalad version 3.2.0-cdh6.3.4 RELEASE (build 5fe4723ad8fe1c3aaecbeb32c7533048be2420cf)
+Query: use dtl310
+Query: SELECT trackname,
+  artistname,
+  COUNT(trackname) AS `value_occurrence`
+
+FROM
+  full_relaxing_evening
+
+GROUP BY
+  trackname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:44 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=454adab5a77705ef:c3cef74700000000
++----------------------------------+---------------------+------------------+
+| trackname                        | artistname          | value_occurrence |
++----------------------------------+---------------------+------------------+
+| Overview                         | Chill Select        | 11               |
+| In A Sentimental Mood            | Duke Ellington      | 9                |
+| I Got It Bad And That Ain't Good | Oscar Peterson Trio | 8                |
+| When Sunny Gets Blue             | McCoy Tyner         | 8                |
+| Twilight                         | Kiabits             | 7                |
+| I Need                           | The Aether          | 7                |
+| Euphory                          | Enoki               | 6                |
+| Midnight Munch                   | Spective            | 6                |
+| Sentimental                      | Solrakmi            | 6                |
+| Fifth Ave                        | Who Needs to Chill  | 6                |
++----------------------------------+---------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT artistname,
+  COUNT(artistname) AS `value_occurrence`
+
+FROM
+  full_relaxing_evening
+
+GROUP BY
+  artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:44 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=2c4a3b2ef116f5cd:1b8149a600000000
++-----------------+------------------+
+| artistname      | value_occurrence |
++-----------------+------------------+
+| Various Artists | 455              |
+| Piano Peace     | 226              |
+| Blank & Jones   | 144              |
+| Chill Select    | 105              |
+| Kayou.          | 103              |
+| Taylor Swift    | 75               |
+| Sarah Coponat   | 63               |
+| Ferdinand Snow  | 55               |
+| Kiabits         | 46               |
+| London Grammar  | 40               |
++-----------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT albumname,
+  artistname,
+  COUNT(albumname) AS `value_occurrence`
+
+FROM
+  full_relaxing_evening
+
+GROUP BY
+  albumname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:44 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=3747b4e46304f6a0:cf67348a00000000
++---------------------------------+----------------+------------------+
+| albumname                       | artistname     | value_occurrence |
++---------------------------------+----------------+------------------+
+| Spa Piano & Ocean Waves         | Piano Peace    | 64               |
+| Baby Lullaby Piano Ocean Sounds | Piano Peace    | 60               |
+| Piano & Ocean                   | Piano Peace    | 52               |
+| Anime Lofi Beats                | Kayou.         | 29               |
+| Morning Routine                 | Maoen          | 29               |
+| SOUR                            | Olivia Rodrigo | 25               |
+| FCMD                            | Mr Mantega     | 25               |
+| Vivid Dreams                    | Happytear      | 22               |
+| Calm Piano & Ocean Waves        | Piano Peace    | 20               |
+| Irenka                          | sanah          | 20               |
++---------------------------------+----------------+------------------+
+Fetched 10 row(s) in 0.21s

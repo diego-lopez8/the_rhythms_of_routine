@@ -1,0 +1,99 @@
+Starting Impala Shell without Kerberos authentication
+Opened TCP connection to hc01.nyu.cluster:21000
+Connected to hc01.nyu.cluster:21000
+Server version: impalad version 3.2.0-cdh6.3.4 RELEASE (build 5fe4723ad8fe1c3aaecbeb32c7533048be2420cf)
+Query: use dtl310
+Query: SELECT trackname,
+  artistname,
+  COUNT(trackname) AS `value_occurrence`
+
+FROM
+  full_pissed
+
+GROUP BY
+  trackname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:43 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=b7419d9abd925310:5294543900000000
++-----------------------------+------------------+------------------+
+| trackname                   | artistname       | value_occurrence |
++-----------------------------+------------------+------------------+
+| I Hate Everything About You | Three Days Grace | 21               |
+| 'Till I Collapse            | Eminem           | 20               |
+| good 4 u                    | Olivia Rodrigo   | 18               |
+| Last Resort                 | Papa Roach       | 17               |
+| I Don't Fuck With You       | Big Sean         | 16               |
+| Bodies                      | Drowning Pool    | 16               |
+| Down with the Sickness      | Disturbed        | 14               |
+| Fake It                     | Seether          | 13               |
+| Break Stuff                 | Limp Bizkit      | 13               |
+| Look At Me!                 | XXXTENTACION     | 13               |
++-----------------------------+------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT artistname,
+  COUNT(artistname) AS `value_occurrence`
+
+FROM
+  full_pissed
+
+GROUP BY
+  artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:43 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=f94a9db58022f8b3:e0e3fcb300000000
++-------------------------+------------------+
+| artistname              | value_occurrence |
++-------------------------+------------------+
+| Various Artists         | 291              |
+| $uicideboy$             | 218              |
+| Disturbed               | 177              |
+| Eminem                  | 163              |
+| Five Finger Death Punch | 137              |
+| Slipknot                | 134              |
+| Limp Bizkit             | 114              |
+| City Morgue             | 108              |
+| Metallica               | 104              |
+| Upchurch                | 98               |
++-------------------------+------------------+
+Fetched 10 row(s) in 0.21s
+Query: use dtl310
+Query: SELECT albumname,
+  artistname,
+  COUNT(albumname) AS `value_occurrence`
+
+FROM
+  full_pissed
+
+GROUP BY
+  albumname, artistname
+
+ORDER BY
+  `value_occurrence` DESC
+
+LIMIT 10
+Query submitted at: 2021-11-21 15:43:43 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=d84a108c1347f212:2434950800000000
++---------------------------------------+----------------+------------------+
+| albumname                             | artistname     | value_occurrence |
++---------------------------------------+----------------+------------------+
+| The Eminem Show                       | Eminem         | 38               |
+| The Voice (Deluxe)                    | Lil Durk       | 34               |
+| Legends Never Die                     | Juice WRLD     | 34               |
+| SOUR                                  | Olivia Rodrigo | 34               |
+| Hybrid Theory (Bonus Edition)         | Linkin Park    | 32               |
+| Significant Other                     | Limp Bizkit    | 32               |
+| Get Rich Or Die Tryin'                | 50 Cent        | 31               |
+| Ten Thousand Fists                    | Disturbed      | 31               |
+| CITY MORGUE VOL 1: HELL OR HIGH WATER | City Morgue    | 30               |
+| CITY MORGUE VOL 2: AS GOOD AS DEAD    | City Morgue    | 29               |
++---------------------------------------+----------------+------------------+
+Fetched 10 row(s) in 0.21s
