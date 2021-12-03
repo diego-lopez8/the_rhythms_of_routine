@@ -1,3 +1,8 @@
+"""
+Author: Diego Lopez
+This file contains a helper class for organizing and outputting the results of the KS test performed on the data
+"""
+
 class singleVar:
     def __init__(self, col, p, ks_stat):
         self.col = col
