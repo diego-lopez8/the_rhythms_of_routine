@@ -97,8 +97,8 @@ SELECT
     avg(full_barbecue.liveness) AS liveness,
     "barbecue" AS table_name
     FROM full_barbecue
-Query submitted at: 2021-11-20 19:21:34 (Coordinator: http://hc01.nyu.cluster:25000)
-Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=d642d56dadfc0918:26581c8600000000
+Query submitted at: 2021-11-21 16:52:07 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=c041a6ab140e0156:074150a100000000
 +--------------------+--------------------+--------------------+--------------------+---------------------+--------------------+---------------------+--------------------+------------------+
 | valence            | danceability       | energy             | loudness           | speechiness         | acousticness       | instrumentalness    | liveness           | table_name       |
 +--------------------+--------------------+--------------------+--------------------+---------------------+--------------------+---------------------+--------------------+------------------+
@@ -111,4 +111,122 @@ Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?que
 | 0.357593543437959  | 0.5605117240938429 | 0.3646381241449847 | -13.30270095250263 | 0.06998458735536653 | 0.5976675598625568 | 0.4731845322086557  | 0.153653717317652  | relaxing evening |
 | 0.5498207748627252 | 0.6294481434672732 | 0.68770340364333   | -7.033232066591088 | 0.09671335308986387 | 0.1880931439802165 | 0.0565796584097448  | 0.1863017737296256 | barbecue         |
 +--------------------+--------------------+--------------------+--------------------+---------------------+--------------------+---------------------+--------------------+------------------+
-Fetched 8 row(s) in 0.38s
+Fetched 8 row(s) in 0.27s
+Query: use dtl310
+Query: SELECT VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "party" AS table_name
+FROM
+    full_party
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "pissed" AS table_name
+FROM
+    full_pissed
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "sunday" AS table_name
+FROM
+    full_sunday
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "relaxing_evening" AS table_name
+FROM
+    full_relaxing_evening
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "traffic_jam" AS table_name
+FROM
+    full_traffic_jam
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "studying" AS table_name
+FROM
+    full_studying
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "date_night" AS table_name
+FROM
+    full_date_night
+UNION ALL
+SELECT
+    VARIANCE(danceability) AS danceability_variance,
+    VARIANCE(valence) AS valence_variance,
+    VARIANCE(energy) AS energy_variance,
+    VARIANCE(loudness) AS loudness_variance,
+    VARIANCE(speechiness) AS speechiness_variance,
+    VARIANCE(acousticness) AS acousticness_variance,
+    VARIANCE(instrumentalness) AS instrumentalness_variance,
+    VARIANCE(liveness) AS liveness_variance,
+    "barbecue" AS table_name
+FROM
+    full_barbecue
+Query submitted at: 2021-11-21 16:52:07 (Coordinator: http://hc01.nyu.cluster:25000)
+Query progress can be monitored at: http://hc01.nyu.cluster:25000/query_plan?query_id=174e9bbc46c9db06:f4a514e300000000
++-----------------------+---------------------+---------------------+-------------------+----------------------+-----------------------+---------------------------+---------------------+------------------+
+| danceability_variance | valence_variance    | energy_variance     | loudness_variance | speechiness_variance | acousticness_variance | instrumentalness_variance | liveness_variance   | table_name       |
++-----------------------+---------------------+---------------------+-------------------+----------------------+-----------------------+---------------------------+---------------------+------------------+
+| 0.0163571681193773    | 0.04930615104186179 | 0.02192449221018498 | 5.646193466215396 | 0.009034759409020768 | 0.02782784596087893   | 0.02062763632227974       | 0.0242167208137083  | party            |
+| 0.02776671996269825   | 0.05019087392215074 | 0.03482583834058162 | 7.682577886092855 | 0.01235177145131723  | 0.04351983918702471   | 0.01946182411331235       | 0.02393375915367783 | pissed           |
+| 0.02220791945149601   | 0.05782864084724237 | 0.04846099909693    | 19.97283054028085 | 0.002368625761543263 | 0.1051906786621183    | 0.06416673176005167       | 0.01685458650394216 | sunday           |
+| 0.0288490227240634    | 0.05489094911314988 | 0.05364145904686501 | 41.44031623916708 | 0.006065761719346092 | 0.1180324429803523    | 0.1709277597543741        | 0.01468601329442135 | relaxing_evening |
+| 0.0240351481078753    | 0.05189389961637652 | 0.03401060600071389 | 7.889026659373194 | 0.01095007846974617  | 0.05677990222647281   | 0.02193374526576578       | 0.02196678614797157 | traffic_jam      |
+| 0.03845494447935385   | 0.05271374128397127 | 0.06308268259642147 | 59.48420810896008 | 0.005017574875947547 | 0.1251834103828838    | 0.1813447802871836        | 0.01094678469977149 | studying         |
+| 0.02083261322580987   | 0.05385916526379599 | 0.05029668605207674 | 19.43241062898269 | 0.00573639781650192  | 0.09769812881152933   | 0.04880761607806105       | 0.01570915528085995 | date_night       |
+| 0.02560259775401647   | 0.05406444165467957 | 0.03198504487008826 | 8.843339472880578 | 0.009732646551693694 | 0.05123101591728203   | 0.03063785546759751       | 0.02156499746689074 | barbecue         |
++-----------------------+---------------------+---------------------+-------------------+----------------------+-----------------------+---------------------------+---------------------+------------------+
+Fetched 8 row(s) in 0.24s
