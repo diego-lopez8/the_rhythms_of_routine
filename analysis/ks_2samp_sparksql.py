@@ -1,5 +1,5 @@
 """
-Credits to Ben Epstein:
+Credits to Davi Schumacher:
 Can be found here:
 https://github.com/Davi-Schumacher/KS-2Samp-PySparkSQL/blob/master/ks_2samp_sparksql.py
 """
